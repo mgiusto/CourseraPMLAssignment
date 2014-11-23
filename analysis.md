@@ -1,15 +1,11 @@
 Coursera Practical Machine Learning Assignment
 ========================================================
 # Introduction
-Aim of the project is to build a classifier to understand if a human is performing correctly barbell lifts, a typical gym exercise.
-Data were collected by http://groupware.les.inf.puc-rio.br/har .
+Aim of the project is to build a classifier to understand if a human is performing correctly barbell lifts, a typical gym exercise. To do so, sensor data gathered by acceleremoters attached to belt, forearm, arm and dumbell of 6 participants were collected. Credits of this work goes to http://groupware.les.inf.puc-rio.br/har .
 
 In the following sections it is reported the code used for loading the data, selecting variables and building the classifier.
 
 
-``` 
-## Warning: package 'caret' was built under R version 3.1.2
-```
 
 
 # Downloading data
@@ -52,22 +48,6 @@ train = training5
 train$output = output
 fitControl <- trainControl(method = "cv", number = 10)
 model = train(output ~ ., method = "rf", data = train, trControl = fitControl)
-```
-
-```
-## Loading required package: randomForest
-```
-
-```
-## Warning: package 'randomForest' was built under R version 3.1.2
-```
-
-```
-## randomForest 4.6-10
-## Type rfNews() to see new features/changes/bug fixes.
-```
-
-```r
 model
 ```
 
@@ -117,7 +97,7 @@ model$finalModel
 ```
 
 
-Due to cross-validation, more random forest classifiers are generated. The final model, that is the best one among the generated, is composed of 500 trees, the expected error rate is 1.72%. From the confusion matrix it can be seen that classe A is very well predicted, on the others there is a greater error, but always acceptably low.
+Due to cross-validation, more random forest classifiers are generated. The final model, that is the best one among the generated, is composed of 500 trees, at each split 2 variables have been tested for splitting. The expected error rate on out of sample elements is 1.72%. From the confusion matrix it can be that the best predicted classe is A, however also on the others the error is always acceptably low.
 
 # Applying model to new data
 To apply the model to new data, once loaded it is necessary to select only the variable used to build the model, then it is possible to generate prediction.
@@ -133,5 +113,4 @@ predict(model, test)
 ##  [1] B A A A A E D B A A B C B A E E A B B B
 ## Levels: A B C D E
 ```
-
 
