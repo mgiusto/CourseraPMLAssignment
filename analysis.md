@@ -7,7 +7,7 @@ Data were collected by http://groupware.les.inf.puc-rio.br/har .
 In the following sections it is reported the code used for loading the data, selecting variables and building the classifier.
 
 
-```
+``` 
 ## Warning: package 'caret' was built under R version 3.1.2
 ```
 

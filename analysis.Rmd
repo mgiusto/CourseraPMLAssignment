@@ -7,7 +7,7 @@ Data were collected by http://groupware.les.inf.puc-rio.br/har .
 In the following sections it is reported the code used for loading the data, selecting variables and building the classifier.
 
 ```{r, echo=FALSE, results='hide',message=FALSE}
-library(caret)
+library(caret) 
 set.seed(1)
 ```
 
